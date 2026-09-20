@@ -10,11 +10,10 @@
 
 <br>
 
-[![Version](https://img.shields.io/badge/version-1.1.0-7C3AED?style=for-the-badge&logo=semanticrelease&logoColor=white)](#download)
-[![Status](https://img.shields.io/badge/status-stable-22C55E?style=for-the-badge&logo=checkmarx&logoColor=white)](#)
+[![Version](https://img.shields.io/badge/version-1.2.0-7C3AED?style=for-the-badge&logo=semanticrelease&logoColor=white)](#download)
 [![Platform](https://img.shields.io/badge/Windows-10%20%2F%2011-0078D6?style=for-the-badge&logo=windows11&logoColor=white)](#download)
-[![Discord](https://img.shields.io/badge/Discord-Join%20Server-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/Wt3vD45hu2)
-[![Downloads](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/itzsepanta/5c410d35f0eb048165280ab2276adebc/raw/migmig-vpn-downloads.json)](https://github.com/itzsepanta/MigMig-VPN/releases)
+[![Telegram](https://img.shields.io/badge/Telegram-Join%20Channel-26A5E4?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/RyxoStudio)
+[![Downloads](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/itzsepanta/5c410d35f0eb048165280ab2276adebc/raw/migmig-vpn-downloads.json)](https://github.com/itzsepanta/RyxoN/releases)
 
 </div>
 
@@ -74,9 +73,9 @@ It connects through your own subscriptions and manual configs, surfaces **real e
 
 <div align="center">
 
-### Latest Release — `v1.1.0`
+### Latest Release — `v1.2.0`
 
-[![Download for Windows](https://img.shields.io/badge/⬇_Download_for_Windows-MigMig_VPN.exe-7C3AED?style=for-the-badge&logo=windows11&logoColor=white)](https://github.com/itzsepanta/MigMig-VPN/releases/latest)
+[![Download for Windows](https://img.shields.io/badge/⬇_Download_for_Windows-RyxoN.exe-7C3AED?style=for-the-badge&logo=windows11&logoColor=white)](https://github.com/itzsepanta/RyxoN/releases/latest)
 
 **Windows 10 / 11 · 64-bit · No installation required — just run the `.exe`**
 
@@ -88,8 +87,8 @@ It connects through your own subscriptions and manual configs, surfaces **real e
 
 ## 🚀 Quick Start
 
-1. **Download** the latest installer from the [Releases](https://github.com/itzsepanta/MigMig-VPN/releases) page.
-2. **Install** and launch **RyxoN**.
+1. **Download** the latest release from the [Releases](https://github.com/itzsepanta/RyxoN/releases) page — or let a running RyxoN update itself.
+2. **Launch RyxoN.**
 3. **Add a subscription** (paste your share link) or import a **manual config**.
 4. **Pick a node** — or let Smart Selection choose the best one.
 5. **Connect** and verify your **real exit country** in the status panel. ✅
@@ -103,5 +102,4 @@ It connects through your own subscriptions and manual configs, surfaces **real e
 **Made with ❤️ and ☕ by [RyxoStudio](https://ryxo.ir)**
 
 <sub>© 2026 RyxoN · All rights reserved.</sub>
-
 </div>
