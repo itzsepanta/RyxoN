@@ -14,7 +14,7 @@ jobs:
       - name: Count .exe downloads
         id: count
         run: |
-          TOTAL=$(curl -s "https://api.github.com/repos/itzsepanta/MigMig-VPN/releases?per_page=100" \
+          TOTAL=$(curl -s "https://api.github.com/repos/itzsepanta/RyxoN/releases?per_page=100" \
             | jq '[.[].assets[] | select(.name | test("\\.exe$"; "i")) | .download_count] | add // 0')
           echo "total=$TOTAL" >> $GITHUB_OUTPUT
           echo "Total .exe downloads: $TOTAL"
