@@ -34,7 +34,7 @@ No account. No telemetry. No analytics. Your configuration stays on your machine
 
 | | |
 |:--|:--|
-| **Engine** | mihomo (Clash.Meta), built from pinned FlClash sources |
+| **Engine** | mihomo (Clash.Meta) |
 | **Interface** | React 18 · TypeScript · Vite · Tailwind CSS v4 · shadcn/ui |
 | **Shell** | Wails v2 (native window, Go backend) |
 | **Languages** | English and Persian, with full right-to-left layout |
@@ -48,8 +48,9 @@ No account. No telemetry. No analytics. Your configuration stays on your machine
 - [Features](#features)
 - [Supported protocols](#supported-protocols)
 - [Download](#download)
+- [Installation](#installation)
+- [Verifying downloads](#verifying-downloads)
 - [Quick start](#quick-start)
-- [Build from source](#build-from-source)
 - [How it works](#how-it-works)
 - [Privacy](#privacy)
 - [FAQ](#faq)
@@ -160,99 +161,96 @@ The AppImage carries its own GTK 3 and WebKitGTK libraries. The `.deb` and
 variants — install the one that matches the WebKitGTK your distribution ships.
 
 > **Windows SmartScreen:** the executable is not code-signed, so the first launch
-> may show *"Windows protected your PC"*. Choose **More info → Run anyway**. The
-> binary is built from this repository by the release workflow; the source is
-> here to check.
+> may show *"Windows protected your PC"*. Choose **More info → Run anyway**.
+
+---
+
+## Installation
+
+### System requirements
+
+| | |
+|:--|:--|
+| **Windows** | Windows 10 or 11, 64-bit. WebView2 is present on Windows 11 and current Windows 10. |
+| **Linux** | x64, with GTK 3 and WebKitGTK 4.0 or 4.1. The AppImage carries both. |
+| **Disk** | About 150 MB. |
+| **Privileges** | None. RyxoN runs without administrator or root rights. |
+
+### Windows
+
+1. Download `RyxoN.exe` from [Releases](https://github.com/itzsepanta/RyxoN/releases).
+2. Run it. There is no installer, and nothing is written outside your user profile.
+
+On first launch Windows may show **"Windows protected your PC"** because the
+executable is not code-signed. Choose **More info → Run anyway**.
+
+### Linux
+
+**AppImage — any distribution**
+
+```bash
+chmod +x RyxoN-Desktop-*-linux-amd64.AppImage
+./RyxoN-Desktop-*-linux-amd64.AppImage
+```
+
+**Debian, Ubuntu, Mint**
+
+```bash
+sudo apt install ./RyxoN-Desktop-*-linux-amd64.deb
+```
+
+**Fedora, RHEL, openSUSE**
+
+```bash
+sudo dnf install ./RyxoN-Desktop-*-linux-amd64.rpm
+```
+
+Take the `-webkit41` variant on distributions that ship WebKitGTK 4.1 — Ubuntu
+24.04 and newer, Debian 13, Fedora 40 and newer. The `.deb` and `.rpm` pull in
+GTK and WebKitGTK themselves; the AppImage carries its own copies.
+
+**Portable**
+
+Unpack the `.zip` and run `./RyxoN`.
+
+### Uninstall
+
+RyxoN keeps everything in one folder:
+
+| | |
+|:--|:--|
+| Windows | `%APPDATA%\RyxoN` |
+| Linux | `~/.config/RyxoN` |
+
+Delete the application and that folder. Nothing else is written to the system.
+
+---
+
+## Verifying downloads
+
+Every release ships a `SHA256SUMS.txt`. To check that a file arrived intact:
+
+```bash
+# Linux
+sha256sum -c SHA256SUMS.txt
+```
+
+```powershell
+# Windows
+Get-FileHash .\RyxoN.exe -Algorithm SHA256
+```
+
+Compare the output with the matching line in `SHA256SUMS.txt`.
 
 ---
 
 ## Quick start
 
-1. **Download** the build for your system from [Releases](https://github.com/itzsepanta/RyxoN/releases).
+1. **Install** the build for your system — see [Installation](#installation).
 2. **Launch RyxoN.**
 3. **Add a subscription** — paste its address — or import a **manual config**.
 4. **Pick a node**, or let smart selection choose one.
 5. **Connect**, then read the **real exit country** in the status panel.
-
----
-
-## Build from source
-
-### Requirements
-
-| | |
-|:--|:--|
-| Go | 1.25 or newer — the module pins the 1.26.5 toolchain, which Go fetches itself |
-| Node.js | 20 or newer |
-| Wails CLI | `go install github.com/wailsapp/wails/v2/cmd/wails@latest` |
-| Windows | WebView2 runtime (present on Windows 11 and current Windows 10) |
-| Linux | `libgtk-3-dev`, `libwebkit2gtk-4.0-dev`, `pkg-config`, `build-essential` |
-
-The engine is not committed. The build fetches the pinned FlClash sources and
-compiles mihomo for the target platform into `desktop/cores/`, then embeds it in
-the binary.
-
-### Windows
-
-```bash
-cd desktop
-make deps
-make build-windows
-```
-
-The executable lands in `desktop/build/bin/RyxoN.exe`.
-
-### Linux
-
-Linux packaging must run on a Linux host — Wails links against GTK and WebKitGTK
-with cgo, which cannot be cross-compiled from Windows. On a Linux machine:
-
-```bash
-cd desktop
-make deps
-make package-linux-distros
-```
-
-Or, from any host with Docker:
-
-```bash
-cd desktop
-make package-linux-all-docker
-```
-
-The packages are written to `desktop/build/releases/all/`.
-
-The Docker path installs GTK, WebKitGTK, Node and the Wails CLI on every run.
-Building the toolchain image once makes later runs much faster:
-
-```bash
-docker build -f scripts/linux-builder.Dockerfile -t ryxon-linux-builder:1.2.1 scripts
-LINUX_DOCKER_IMAGE=ryxon-linux-builder:1.2.1 make package-linux-all-docker
-```
-
-If Docker Hub is not reachable from your network, point the build at a registry
-mirror:
-
-```bash
-docker build --build-arg BASE_IMAGE=<mirror>/library/golang:1.26.5-bookworm \
-  -t ryxon-linux-builder:1.2.1 -f scripts/linux-builder.Dockerfile scripts
-```
-
-On a slow connection, the host's Go module cache saves the download that most
-often fails — the Wails module:
-
-```bash
-GOMOD_CACHE_DIR="$(go env GOMODCACHE)" \
-  LINUX_DOCKER_IMAGE=ryxon-linux-builder:1.2.1 make package-linux-all-docker
-```
-
-### Tests
-
-```bash
-cd desktop
-go test ./...                    # backend
-npm run build --prefix frontend  # type check and production bundle
-```
 
 ---
 
@@ -276,10 +274,9 @@ named pipe. The interface never talks to it directly: the Go backend owns the
 process, the configuration, the health checks and the measurements, and publishes
 what it learns as events.
 
-The engine is **mihomo**, built from the FlClash sources pinned in
-`desktop/scripts/setup-mihomo-core.sh`. The build refuses to embed a stock mihomo
-binary: the pinned core is patched to dial back over the pipe, and a stock build
-ignores the endpoint it is handed.
+The engine is **mihomo** (Clash.Meta), built from the FlClash sources and patched
+to dial back over that pipe. A stock mihomo build ignores the endpoint it is
+handed, which is why RyxoN ships its own.
 
 ---
 
@@ -306,16 +303,14 @@ actually leaves from and shows that instead.
 
 **The app says the engine did not connect.**
 That message means the engine process started but never dialled back over its
-pipe — usually a missing or wrong core. Rebuild with `make build-windows` (or
-`make package-linux-distros`) so the pinned engine is compiled and embedded.
+pipe. Reinstall the app; if it keeps happening, report it on the Telegram channel
+with the version you are running.
 
 **Windows shows a SmartScreen warning.**
-The executable is not code-signed. Choose **More info → Run anyway**; the source
-is in this repository.
+The executable is not code-signed. Choose **More info → Run anyway**.
 
 **Does it work on macOS?**
-The codebase builds for macOS, but no macOS package is published. Treat it as
-untested.
+No package is published for macOS. Windows and Linux are the supported platforms.
 
 ---
 
