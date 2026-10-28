@@ -1,0 +1,115 @@
+# AI assistants
+**/.agents/
+**/.aider*
+**/.claude/
+**/.codex/
+**/.continue/
+**/.cursor/
+**/.gemini/
+**/.openai/
+**/.windsurf/
+**/AGENTS.md
+**/CLAUDE.md
+**/GEMINI.md
+**/.github/copilot-instructions.md
+
+# Preserved nested repository metadata
+/.nested-git-backup/
+
+# OS and editor state
+**/.DS_Store
+**/Thumbs.db
+**/Desktop.ini
+**/.idea/
+**/.vscode/
+**/*.swp
+**/*.swo
+
+# Local configuration and secrets
+**/.env
+**/.env.*
+!**/.env.example
+!**/.env.*.example
+**/local.properties
+**/*.cookies
+**/*.local
+**/*.secret
+**/secrets/
+**/credentials/
+**/*.key
+**/*.pem
+**/*.p12
+**/*.pfx
+**/*.crt
+**/*.csr
+**/*.jks
+**/*.keystore
+
+# Logs, caches, and test captures
+**/logs/
+**/*.log
+**/*.tmp
+**/*.bak
+# The build writes the real version into wails.json and puts the original back
+# when it finishes; this is that original, and it only survives a build the
+# machine did not live through.
+desktop/wails.json.version-backup
+**/.cache/
+**/.gradle/
+**/coverage/
+**/coverage.out
+**/*.prof
+**/*.trace
+/*[Tt]est*.txt
+/photo_*.png
+/video_*.mp4
+
+# Dependencies and generated output
+**/node_modules/
+**/dist/
+**/.vite/
+**/frontend/wailsjs/
+**/frontend/package.json.md5
+**/bin/
+**/build/
+!desktop/build/
+desktop/build/*
+!desktop/build/appicon.icns
+!desktop/build/windows/
+desktop/build/windows/*
+!desktop/build/windows/wails.exe.manifest
+**/*.test
+**/*.out
+**/go.work
+**/go.work.sum
+
+# Runtime and release binaries
+desktop/clients/*
+!desktop/clients/.keep
+desktop/cores/*
+!desktop/cores/.keep
+# The engine is built from source; wintun is a redistributable it loads at
+# runtime and cannot build, so it travels with the repo or Windows TUN has
+# nothing to create an adapter with on a fresh checkout.
+!desktop/cores/wintun.dll
+**/*.dmg
+**/*.pkg
+**/*.msi
+**/*.exe
+**/*.deb
+**/*.rpm
+**/*.AppImage
+**/*.zip
+**/*.tar.gz
+**/*.tgz
+**/*.7z
+**/*.sha256
+
+# Vendored engine source, fetched by desktop/scripts/setup-mihomo-core.sh and
+# read here only when a rule's behaviour has to be checked against the engine's
+# own implementation. It is thousands of files of somebody else's project and is
+# never part of what this one ships, so it stays out of the repository.
+desktop/third_party/
+
+# Agent working notes, not project source.
+memory.md
