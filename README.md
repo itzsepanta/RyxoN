@@ -14,7 +14,7 @@
 [![Status](https://img.shields.io/badge/status-stable-22C55E?style=for-the-badge)](#)
 [![Windows](https://img.shields.io/badge/Windows-10%20%2F%2011-0078D6?style=for-the-badge&logo=windows11&logoColor=white)](#download)
 [![Linux](https://img.shields.io/badge/Linux-x64-FCC624?style=for-the-badge&logo=linux&logoColor=black)](#download)
-[![Telegram](https://img.shields.io/badge/Telegram-Join%20channel-26A5E4?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/ryxon)
+[![Telegram](https://img.shields.io/badge/Telegram-Join%20channel-26A5E4?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/RyxoStudio)
 
 </div>
 
@@ -316,7 +316,7 @@ No package is published for macOS. Windows and Linux are the supported platforms
 ## Community
 
 Release notes, questions and support live on the **RyxoN Telegram channel**:
-**[t.me/ryxon](https://t.me/ryxon)**.
+**[t.me/RyxoStudio](https://t.me/RyxoStudio)**.
 
 Full changelog: [RELEASE_NOTES.md](RELEASE_NOTES.md).
 
