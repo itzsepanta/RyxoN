@@ -12,6 +12,11 @@ and the parts of the interface that got in the way have been got out of it.
 
 ## ✨ Highlights
 
+- **Linux.** The same application, packaged for Linux x64: an AppImage that
+  carries its own GTK and WebKitGTK, `.deb` and `.rpm` packages for the
+  distributions that ship them, and a portable archive. Both WebKitGTK 4.0 and
+  4.1 are covered, because they are different shared libraries and a build
+  against one does not start on a system that only has the other.
 - **WireGuard and AmneziaWG configs import properly.** A `.conf` pasted or added
   as a manual config is read as a config rather than as a link that fails to
   parse, and an AmneziaWG config keeps the obfuscation parameters (`Jc`, `Jmin`,
