@@ -154,8 +154,7 @@ and the parts of the interface that got in the way have been got out of it.
 
 | Asset | Use it when |
 |:--|:--|
-| `RyxoN.exe` | Normal 64-bit Windows on Intel or AMD. No installation — just run it. |
-| The ARM64 archive | Windows on ARM (Snapdragon, Surface Pro X). |
+| `RyxoN.exe` | 64-bit Windows 10 or 11 on Intel or AMD. No installation — just run it. |
 
 **Linux (x64)**
 
